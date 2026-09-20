@@ -33,6 +33,7 @@ pages.push(`<section id="voices" class="section voices" data-section="10"><div c
 pages.push(`<section id="safety" class="section safety" data-section="11"><div class="wrap split"><div>${label(11,'FOR YOUR SAFETY')}${heading('こんなときは、\nまず医療機関へ')}${image('treatment-hands','身体の状態を大切にしながら行うケア')}</div><div>${p(s(11)[0])}${list(s(11)[1],'safety-list')}${p(s(11)[2])}</div></div></section>`);
 pages.push(`<section id="access" class="section access" data-section="12"><div class="wrap"><div class="split"><div>${label(12,'ACCESS')}${heading(copy[11].title)}<p class="salon-name">total life support <strong>clear</strong></p>${p(s(12)[2])}<dl>${s(12).slice(3).map(b=>{const [k,v]=b.split('\n');return `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`}).join('')}</dl></div><div class="access-visual">${image('shop-exterior','おおにし産婦人科の外観。clearは2階です。')}${p(s(12)[1].replace(/^・/,''))}${btn('地図を見る',map,'button-green')}</div></div></div></section>`);
 pages.push(`<section id="message" class="section message dark" data-section="13"><div class="wrap message-layout"><div class="message-aside">${label(13,'FROM CLEAR')}${heading(s(13)[0])}<figure>${image('selfcare-exercise','これからの身体との付き合い方を、一緒に考えるclearのケア')}<figcaption aria-hidden="true">Your body. Your life.</figcaption></figure></div><div class="message-copy">${s(13).slice(1,7).map(x=>p(x)).join('')}${fromButton(s(13)[7])}</div></div></section>`);
+require('./design-details.cjs')({pages,image});
 if(wpSettings.hero.enabled) {
   for(const key of ['desktopUrl','mobileUrl']) {
     if(!/^https:\/\//.test(wpSettings.hero[key])) throw new Error('Hero requires valid HTTPS desktopUrl and mobileUrl.');
@@ -46,7 +47,8 @@ const html=`<!doctype html>
 <main id="main">${pages.join('\n')}</main><footer class="site-footer"><div class="wrap footer-inner"><a class="brand" href="#home"><span>total life support</span><strong>clear<span class="brand-dot">.</span></strong></a><div><p>total life support clear｜整体</p><p>鹿児島県鹿児島市川上町2805-1 おおにし産婦人科2F</p></div><a href="#home" class="back-top" aria-label="ページの先頭へ">↑</a></div></footer>
 <nav class="mobile-booking" aria-label="予約と相談"><a href="${line}" target="_blank" rel="noopener">公式LINEで相談 <span aria-hidden="true">↗</span></a><a href="${hp}" target="_blank" rel="noopener">空席確認・予約 <span aria-hidden="true">↗</span></a></nav>
 </body></html>`;
-fs.writeFileSync(path.join(__dirname,'index.html'),html);
+const styledHtml=html.replace('<link rel="stylesheet" href="styles.css">','<link rel="stylesheet" href="fonts/clear-fonts.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="design-v2.css">');
+fs.writeFileSync(path.join(__dirname,'index.html'),styledHtml);
 console.log('Built index.html with '+pages.length+' approved-copy sections.');
-require('./export-wordpress.cjs')({html,pages,settings:wpSettings});
+require('./export-wordpress.cjs')({html:styledHtml,pages,settings:wpSettings});
 

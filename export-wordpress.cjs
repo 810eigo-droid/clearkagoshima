@@ -15,6 +15,7 @@ function scopeCSS(css){
     if(depth)throw Error('Unbalanced CSS');
     const body=css.slice(start+1,end-1);
     if(head.startsWith('@media')) result+=`${head}{\n${scopeCSS(body)}}\n`;
+    else if(head==='@font-face'&&/font-family:\s*['"]ClearSansJP['"]/.test(body))result+=head+'{'+body+'}\n';
     else if(head.startsWith('@'))throw Error('Unsupported CSS at-rule: '+head);
     else {
       const selectors=head.split(',').map(x=>x.trim()).filter(x=>x!=='html');
@@ -28,20 +29,20 @@ module.exports=({html,pages,settings})=>{
   const out=path.join(__dirname,'wordpress');
   fs.mkdirSync(out,{recursive:true});
   const write=(name,text)=>fs.writeFileSync(path.join(out,name),text+'\n');
-  const src=fs.readFileSync(path.join(__dirname,'styles.css'),'utf8');
+  const src=['fonts/clear-fonts.css','styles.css','design-v2.css'].map(file=>fs.readFileSync(path.join(__dirname,file),'utf8')).join('\n');
   const scoped=scopeCSS(src)+`
 /* WordPress integration: styles are limited to the LP. */
 .clear-lp{display:block;width:100%;max-width:none;margin:0!important;padding:0;border:0;isolation:isolate;text-align:left;font-style:normal;font-weight:400}
 .clear-lp section[id]{scroll-margin-top:32px}
 .clear-lp a{box-shadow:none}
-.clear-lp img{max-width:100%;border:0;box-shadow:none}
+.clear-lp img{max-width:100%;box-shadow:none}
 .clear-lp p,.clear-lp li,.clear-lp dd{font-family:var(--sans)}
 .clear-lp h1,.clear-lp h2,.clear-lp h3{padding:0;border:0;background:none;color:inherit;text-transform:none}
 .clear-lp h1::before,.clear-lp h1::after,.clear-lp h2::before,.clear-lp h2::after,.clear-lp h3::before,.clear-lp h3::after{content:none}
 .clear-lp .hero h1 em{color:var(--green)}
 .clear-lp .dark h2{color:var(--paper)}
 .clear-lp .serif,.clear-lp .hero-message{font-family:var(--serif)}
-.clear-lp .hero-intro p{color:var(--paper)}
+.clear-lp .hero-intro p{color:var(--ink)}
 .clear-lp .voices-intro{padding-bottom:28px}
 .clear-lp .voices-outro{padding-top:28px}
 .clear-lp .voices-outro .center-action{margin-top:30px}
