@@ -1,6 +1,6 @@
 # 口コミセクションの差し替え（最新手順）
 
-現在はプラグイン不要です。Googleの口コミリンク先は確認待ちのため、未設定のボタンは表示しません。content/wordpress-settings.json の reviews.googleUrl に確認済みURLを設定してビルドするとリンクが追加されます。現在の口コミ文と画像枠は維持しています。
+現在はプラグイン不要です。ユーザー提供のGoogle共有URLを設定しています。口コミ一覧への直接遷移は未確認のため、ボタン表記は「Googleで確認する」です。content/wordpress-settings.json の reviews.googleUrl に確認済みURLを設定してビルドするとリンクが追加されます。現在の口コミ文と画像枠は維持しています。
 
 ## WordPressへの貼り付け順
 
@@ -30,3 +30,4 @@ images/10.koe.webp を追加してビルドすると、枠を変えずに差し�
 新しい画像を追加したコミットに合わせて imageBaseUrl も更新してください。
 
 V1のHTMLと保存タグは変更していません。
+
