@@ -39,7 +39,7 @@ if(wpSettings.hero.enabled) {
     if(!/^https:\/\//.test(wpSettings.hero[key])) throw new Error('Hero requires valid HTTPS desktopUrl and mobileUrl.');
   }
   const intro=pages[0].slice(pages[0].indexOf('<div class="hero-intro wrap">'));
-  pages[0]=`<section id="home" class="hero hero-art" data-section="01"><div class="hero-accessible"><p>${esc(s(1)[0])}</p><h1>${esc(s(1)[1])}</h1>${p(s(1)[2])}${p(s(1)[5])}</div><picture class="hero-art-picture"><source media="(max-width: 767px)" srcset="${esc(wpSettings.hero.mobileUrl)}" width="1080" height="1920"><img src="${esc(wpSettings.hero.desktopUrl)}" width="1920" height="1080" alt="" fetchpriority="high" decoding="async"></picture><div class="hero-art-action wrap">${fromButton(s(1)[6])}</div>${intro}`;
+  pages[0]=`<section id="home" class="hero hero-art" data-section="01"><div class="hero-accessible"><p>${esc(s(1)[0])}</p><h1>${esc(s(1)[1])}</h1>${p(s(1)[2])}${p(s(1)[5])}</div><picture class="hero-art-picture"><source media="(max-width: 767px)" srcset="${esc(wpSettings.hero.mobileUrl)}" width="941" height="1672"><img src="${esc(wpSettings.hero.desktopUrl)}" width="1672" height="941" alt="" fetchpriority="high" decoding="async"></picture><div class="hero-art-action wrap">${fromButton(s(1)[6])}</div>${intro}`;
 }
 const html=`<!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#344b40"><meta name="description" content="鹿児島市川上町・おおにし産婦人科2Fの整体サロンclear。理学療法士が身体の状態を確認し、施術から運動・セルフケアまで一緒に考えます。完全個室・駐車場完備。"><title>clear｜鹿児島市川上町の整体・運動・セルフケア</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"></head><body>
@@ -51,4 +51,3 @@ const styledHtml=html.replace('<link rel="stylesheet" href="styles.css">','<link
 fs.writeFileSync(path.join(__dirname,'index.html'),styledHtml);
 console.log('Built index.html with '+pages.length+' approved-copy sections.');
 require('./export-wordpress.cjs')({html:styledHtml,pages,settings:wpSettings});
-

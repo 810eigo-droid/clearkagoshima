@@ -2,8 +2,8 @@
   "imageBaseUrl": "https://raw.githubusercontent.com/810eigo-droid/clearkagoshima/93919fa9b696576d3551a74cfa9f6eaac3a9a210/images/",
   "imageUrls": {},
   "hero": {
-    "enabled": false,
-    "desktopUrl": "",
-    "mobileUrl": ""
+    "enabled": true,
+    "desktopUrl": "https://raw.githubusercontent.com/810eigo-droid/clearkagoshima/5d2ff3e6804f508f3e0ed90f13aa47de4dbd569f/images/fv-pc.webp",
+    "mobileUrl": "https://raw.githubusercontent.com/810eigo-droid/clearkagoshima/5d2ff3e6804f508f3e0ed90f13aa47de4dbd569f/images/fv-sp.webp"
   }
 }
