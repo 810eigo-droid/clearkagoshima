@@ -64,7 +64,7 @@ module.exports=({html,pages,settings})=>{
   const wpIds=h=>h.replace(/\bid="([^" ]+)"/g,(_,id)=>`id="clear-${id}"`).replace(/href="#([^" ]+)"/g,(_,id)=>`href="#clear-${id}"`);
   const pretty=h=>h.replace(/></g,'>\n<');
   const wrap=h=>pretty(media(wpIds('<div class="clear-lp">'+h+'</div>')));
-  const header=html.match(/<header class="site-header">[\s\S]*?<\/header>/)[0];
+  const header=html.match(/<header class="site-header[^" ]*(?: [^"]*)?">[\s\S]*?<\/header>/)[0];
   const footer=html.match(/<footer class="site-footer">[\s\S]*?<\/footer>/)[0];
   const sticky=html.match(/<nav class="mobile-booking"[\s\S]*?<\/nav>/)[0];
   const voice=pages[9];
@@ -87,3 +87,4 @@ module.exports=({html,pages,settings})=>{
   write('preview.html',`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>clear｜WordPress用4分割プレビュー</title><link rel="stylesheet" href="00-common.css"><style>body{margin:0}.theme-check{padding:8px;font:16px sans-serif;background:#fff;color:#111}</style></head><body><main class="clear-lp-page">${parts.slice(0,3).map(x=>x[1]).join('\n')}${wrap(voice)}${parts[3][1]}</main></body></html>`);
   console.log('Exported four independent WordPress blocks, scoped CSS, review fallback, and preview.');
 };
+
