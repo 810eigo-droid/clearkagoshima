@@ -1,0 +1,41 @@
+<!-- LPの末尾にカスタムHTMLブロックを追加して全文貼付 -->
+<style>
+/* clear LP only: Cocoon outer layout. Keep the admin toolbar available. */
+body:has(.clear-lp) #header-container,
+body:has(.clear-lp) #navi,
+body:has(.clear-lp) #navi-in,
+body:has(.clear-lp) #sidebar,
+body:has(.clear-lp) #footer,
+body:has(.clear-lp) #breadcrumb,
+body:has(.clear-lp) #go-to-top,
+body:has(.clear-lp) .mobile-header-menu-buttons,
+body:has(.clear-lp) .mobile-footer-menu-buttons,
+body:has(.clear-lp) .appeal,
+body:has(.clear-lp) .recommended,
+body:has(.clear-lp) #main > .sns-share,
+body:has(.clear-lp) #main > .sns-follow,
+body:has(.clear-lp) #main > .date-tags,
+body:has(.clear-lp) #main > .under-entry-content,
+body:has(.clear-lp) #main > .comments-wrap,
+body:has(.clear-lp) .article > .article-header,
+body:has(.clear-lp) .article > .article-footer,
+body:has(.clear-lp) .article > .sns-share,
+body:has(.clear-lp) .article > .sns-follow,
+body:has(.clear-lp) .article > .date-tags,
+body:has(.clear-lp) .article > .eye-catch,
+body:has(.clear-lp) .article > .footer-meta,
+body:has(.clear-lp) .article > .under-entry-content,
+body:has(.clear-lp) .article > .ad-area,
+body:has(.clear-lp) .article > .widget,
+body:has(.clear-lp) .article > .author-box,
+body:has(.clear-lp) .article > .related-entries{display:none!important}
+body:has(.clear-lp) #container,
+body:has(.clear-lp) #content,
+body:has(.clear-lp) #content-in,
+body:has(.clear-lp) #main,
+body:has(.clear-lp) .article,
+body:has(.clear-lp) .entry-content{width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important}
+body:has(.clear-lp) #content-in{display:block!important}
+body:has(.clear-lp){background:#f7f5ef!important}
+body:has(.clear-lp) .entry-content > .clear-lp,body:has(.clear-lp) .entry-content > .wp-block-group:has(.clear-lp){margin:0!important;max-width:none!important;padding:0!important}
+</style>

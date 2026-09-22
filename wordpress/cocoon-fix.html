@@ -1,0 +1,40 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>clear LP｜テーマ表示の調整</title><style>body{max-width:880px;margin:40px auto;padding:0 20px;background:#f7f5ef;color:#293d32;font:18px/1.9 sans-serif}textarea{box-sizing:border-box;width:100%;height:420px;font:14px/1.6 monospace}button{padding:12px 24px;font:inherit;background:#334f41;color:white;border:0;border-radius:8px}</style><h1>Cocoonの外側の表示を消す</h1><p>LPの固定ページの最後に「カスタムHTML」ブロックを1つ追加し、下のコードを全文貼り付けて更新してください。本文・画像の貼り直しは不要です。</p><p>先にページ設定のページタイプを「本文のみ（広い）」にしてください。このコードはclear-lpクラスを含むLPだけに効きます。</p><button onclick="document.querySelector('textarea').select()">コードを全選択</button><p>選択後にコピーしてWordPressへ貼り付けてください。</p><textarea readonly aria-label="コピーするHTMLコード">&lt;style>
+/* clear LP only: Cocoon outer layout. Keep the admin toolbar available. */
+body:has(.clear-lp) #header-container,
+body:has(.clear-lp) #navi,
+body:has(.clear-lp) #navi-in,
+body:has(.clear-lp) #sidebar,
+body:has(.clear-lp) #footer,
+body:has(.clear-lp) #breadcrumb,
+body:has(.clear-lp) #go-to-top,
+body:has(.clear-lp) .mobile-header-menu-buttons,
+body:has(.clear-lp) .mobile-footer-menu-buttons,
+body:has(.clear-lp) .appeal,
+body:has(.clear-lp) .recommended,
+body:has(.clear-lp) #main > .sns-share,
+body:has(.clear-lp) #main > .sns-follow,
+body:has(.clear-lp) #main > .date-tags,
+body:has(.clear-lp) #main > .under-entry-content,
+body:has(.clear-lp) #main > .comments-wrap,
+body:has(.clear-lp) .article > .article-header,
+body:has(.clear-lp) .article > .article-footer,
+body:has(.clear-lp) .article > .sns-share,
+body:has(.clear-lp) .article > .sns-follow,
+body:has(.clear-lp) .article > .date-tags,
+body:has(.clear-lp) .article > .eye-catch,
+body:has(.clear-lp) .article > .footer-meta,
+body:has(.clear-lp) .article > .under-entry-content,
+body:has(.clear-lp) .article > .ad-area,
+body:has(.clear-lp) .article > .widget,
+body:has(.clear-lp) .article > .author-box,
+body:has(.clear-lp) .article > .related-entries{display:none!important}
+body:has(.clear-lp) #container,
+body:has(.clear-lp) #content,
+body:has(.clear-lp) #content-in,
+body:has(.clear-lp) #main,
+body:has(.clear-lp) .article,
+body:has(.clear-lp) .entry-content{width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important}
+body:has(.clear-lp) #content-in{display:block!important}
+body:has(.clear-lp){background:#f7f5ef!important}
+body:has(.clear-lp) .entry-content > .clear-lp,body:has(.clear-lp) .entry-content > .wp-block-group:has(.clear-lp){margin:0!important;max-width:none!important;padding:0!important}
+&lt;/style></textarea><p>最上部の黒い管理バーはログイン中だけの表示です。ログアウトまたはシークレットウィンドウで一般公開時の表示を確認できます。</p><p><a href="manual.html">設置・更新マニュアルへ</a></p></html>
