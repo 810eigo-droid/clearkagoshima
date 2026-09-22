@@ -10,27 +10,42 @@
 </head>
 <body><main>
 <h1>clear<br>文章と画像の変更方法</h1>
+<p>パソコンで操作します。検索は<strong>Ctrlキーを押しながらFキー</strong>です。Macの場合は<strong>⌘＋F</strong>です。</p>
 <section aria-labelledby="text"><h2 id="text">1．文章を書き換える</h2>
 <ol>
-<li>WordPressの<strong>「固定ページ」</strong>から、<strong>今回のLP（/lp/）</strong>の編集画面を開きます。</li>
-<li>変更したい文章が入っている<strong>「カスタムHTML」ブロック</strong>をクリックします。</li>
-<li>文章を探し、<strong>文字の部分だけ</strong>を書き換えます。営業時間や定休日も同じ方法で変更できます。</li>
-<li><strong>「プレビュー」</strong>で確認し、<strong>「更新」または「保存」</strong>を押します。</li>
+<li>WordPressの<strong>「固定ページ」</strong>で、今回のLP（/lp/）を選び、<strong>「編集」</strong>を押します。</li>
+<li>画面右上の<strong>「︙」（点が縦に3つ）</strong>を押し、<strong>「コードエディター」</strong>を選びます。ページ全体が文字と記号で表示されます。</li>
+<li><strong>Ctrl＋F</strong>を押し、検索欄に変更したい文章の一部を入力します。たとえば営業時間なら<strong>「営業時間」</strong>と入力します。</li>
+<li>見つかった文章の場所を確認し、<strong>Escキー</strong>で検索欄を閉じます。本文の変更したい文字をクリックして、書き換えます。</li>
+<li><strong>「プレビュー」</strong>で見た目を確認し、問題なければ<strong>「更新」または「保存」</strong>を押します。</li>
 </ol>
-<pre>変更前：&lt;p&gt;営業時間：9:00〜18:00&lt;/p&gt;
-変更後：&lt;p&gt;営業時間：10:00〜19:00&lt;/p&gt;</pre>
-<p>上は書き換え方の例です。<strong>&lt;p&gt; や &lt;/p&gt; などの記号は残してください。</strong></p>
+<p><strong>例：営業時間を変更する場合</strong></p>
+<pre>検索する言葉：営業時間
+
+変更前：&lt;p&gt;営業時間：<mark>9:00〜18:00</mark>&lt;/p&gt;
+変更後：&lt;p&gt;営業時間：<mark>10:00〜19:00</mark>&lt;/p&gt;</pre>
+<p>時間は説明用の例です。<strong>色のついた文字だけを変更し、&lt;p&gt; や &lt;/p&gt; は残します。</strong>同じ言葉が何か所か出たときは、検索欄の矢印で次の候補を確認します。</p>
+<p class="hint">検索で本文が見つからない場合は、コードの入力欄をクリックして<strong>Ctrl＋A → Ctrl＋C</strong>で全文をコピーし、パソコンの「メモ帳」に貼り付けて<strong>Ctrl＋F</strong>で探せます。メモ帳で修正した場合は、全文をコピーし、元のコード入力欄の全文と入れ替えます。</p>
 </section>
 <section aria-labelledby="image"><h2 id="image">2．画像を差し替える</h2>
+<p><strong>例：「先生の紹介」の写真を新しくする場合</strong></p>
 <ol>
-<li>WordPressの<strong>「メディア」→「新規追加」</strong>から、新しい画像を入れます。</li>
-<li>追加した画像を開き、<strong>「ファイルのURL」</strong>をコピーします。</li>
-<li>LPの編集画面に戻り、差し替えたい画像が入っている<strong>「カスタムHTML」ブロック</strong>を開きます。</li>
-<li><strong>src="…"</strong> を探し、引用符の中の画像URLだけを、新しいURLに貼り替えます。</li>
-<li><strong>「プレビュー」</strong>で確認し、<strong>「更新」または「保存」</strong>を押します。</li>
+<li>WordPressの<strong>「メディア」→「新規追加」</strong>を開き、新しい写真をアップロードします。</li>
+<li>追加した写真を開き、<strong>「ファイルのURL」</strong>をコピーします。<br>例：<code>https://clearkagoshima.com/wp-content/uploads/2026/09/sensei-new.jpg</code></li>
+<li>LPの編集画面で、右上の<strong>「︙」→「コードエディター」</strong>を開きます。</li>
+<li><strong>Ctrl＋F</strong>で <strong>04-therapist.webp</strong> を検索します。これが「先生の紹介」の画像名です。</li>
+<li><strong>Escキー</strong>で検索欄を閉じ、その画像名を含む<strong>src="…" の引用符の中を、URLの先頭から末尾まで</strong>選択します。コピーした新しいURLを貼り付けます。</li>
+<li><strong>「プレビュー」</strong>で写真を確認し、<strong>「更新」または「保存」</strong>を押します。</li>
 </ol>
-<pre>&lt;img src="ここに新しい画像のURLを貼ります" …&gt;</pre>
-<p><strong>引用符（"）や、その前後の文字は残してください。</strong>近くの見出しや、画像の説明 <code>alt="…"</code> が、画像を探す目印になります。</p>
-<p class="hint"><strong>ページ最上部の大きな画像は2枚あります。</strong><br>スマホ用は <code>srcset="…"</code>、パソコン用は <code>src="…"</code> のURLを貼り替えます。画像に描かれている文字を変える場合も、画像を差し替えてください。</p>
+<p><strong>変更する場所の例</strong>（URLは説明用です）</p>
+<pre>変更前
+&lt;img src="<mark>https://example.com/images/04-therapist.webp</mark>" alt="先生の紹介"&gt;
+
+変更後
+&lt;img src="<mark>https://clearkagoshima.com/wp-content/uploads/2026/09/sensei-new.jpg</mark>" alt="先生の紹介"&gt;</pre>
+<p><strong>色のついたURL全体を入れ替えます。</strong>画像名だけではありません。引用符（"）と、その前後の文字は残してください。</p>
+<p><strong>ほかの画像を探すときの検索語</strong></p>
+<ul><li>先生の紹介：<code>04-therapist.webp</code></li><li>LINEのアドバイスシート：<code>05-flow-05-line-advice.webp</code></li><li>お客様の声の画像：<code>10.koe.webp</code></li></ul>
+<p class="hint"><strong>最上部の大きな画像は2枚です。</strong><br>パソコン用は <code>fv-pc.webp</code>、スマホ用は <code>fv-sp.webp</code> を検索します。パソコン用は <code>src="…"</code>、スマホ用は <code>srcset="…"</code> のURLを入れ替えます。画像に描かれた文字を変える場合も、画像を差し替えます。</p>
 </section>
 </main></body></html>
