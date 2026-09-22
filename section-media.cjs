@@ -21,6 +21,7 @@ module.exports=({pages,settings,btn})=>{
   pages[9]=pages[9].replace(/(<img[^>]*src="images\/10\.koe\.webp"[^>]*>)/,'<figure class="voices-image">$1<figcaption>イメージ画像です</figcaption></figure>');
   pages[4]=pages[4].replace('class="section flow"','class="section flow photo-tone-adjusted"');
   pages[8]=pages[8].replace('class="section faq"','class="section faq photo-tone-adjusted"');
+  for(let i=0;i<pages.length;i++) pages[i]=pages[i].replace(/<img([^>]*src="images\/(?:check-posture|profile-onishi|selfcare-exercise|treatment-hands|shop-exterior)\.webp"[^>]*)>/g,(_,attrs)=>'<img'+attrs.replace(/ class="[^"]*"/,'')+' class="soft-real-photo">');
   const url=settings.reviews?.googleUrl;
   if(url){
     if(!/^https:\/\//.test(url))throw Error('Google review URL must use HTTPS');

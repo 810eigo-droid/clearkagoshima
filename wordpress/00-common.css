@@ -889,8 +889,6 @@
 @media(max-width:640px){
 .clear-lp .access-map iframe{height:340px}
 }
-.clear-lp .flow.photo-tone-adjusted .flow-step:nth-child(2) .step-photo img{filter:brightness(1.16) contrast(.94) saturate(.94)}
-.clear-lp .faq.photo-tone-adjusted .faq-intro>img{filter:brightness(1.13) contrast(.95) saturate(.95)}
 .clear-lp .voices-image{margin:0}
 .clear-lp .voices-image figcaption{font-size:12px;line-height:1.6;text-align:right;color:#626b63;margin-top:10px}
 .clear-lp .voices-image img{display:block}
@@ -934,6 +932,7 @@
 .clear-lp .menu-panel nav a{font-size:18px}
 .clear-lp .menu-offer .button{font-size:16px}
 }
+.clear-lp img.soft-real-photo{filter:brightness(1.16) contrast(.82) saturate(.82)}
 
 /* WordPress integration: styles are limited to the LP. */
 .clear-lp{display:block;width:100%;max-width:none;margin:0!important;padding:0;border:0;isolation:isolate;text-align:left;font-style:normal;font-weight:400}
