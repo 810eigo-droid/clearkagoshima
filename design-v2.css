@@ -57,3 +57,5 @@ h2{font-size:clamp(30px,3.2vw,44px);line-height:1.7}
 .price-layout>*{min-width:0}
 @media(max-width:640px){.first-price{gap:6px}.first-price strong{font-size:clamp(50px,16vw,85px)}.price-card{width:calc(100% - 8px)}}
 @media print{.hero-collage{min-height:400px}.hero-detail,.hero-seal,.photo-script,.orbit,.section:before,.section:after{display:none}.section{border-radius:0}.price-card,.step-photo,.nameplate,.arched-photo,.salon-exterior,.access-visual img{transform:none;box-shadow:none}}
+
+.intro-consultation{margin:30px 0 0}.intro-consultation img{display:block;width:100%;height:auto;border-radius:44% 8% 36% 9% / 22% 8% 25% 10%}

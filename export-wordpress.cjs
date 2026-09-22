@@ -76,11 +76,14 @@ module.exports=({html,pages,settings})=>{
   const parts=[
     ['01-sections-01-03.html',wrap(header+pages.slice(0,3).join('\n'))],
     ['02-sections-04-06.html',wrap(pages.slice(3,6).join('\n'))],
-    ['03-sections-07-09-and-voices-heading.html',wrap(pages.slice(6,9).join('\n')+intro)],
-    ['04-sections-11-13-and-footer.html',wrap(outro+pages.slice(10,13).join('\n')+footer+sticky)]
+    ['03-sections-07-09-and-voices-heading.html',wrap(pages.slice(6,9).join('\n'))],
+    ['04-sections-11-13-and-footer.html',wrap(pages.slice(10,13).join('\n')+footer+sticky)]
   ];
   for(const [name,body] of parts)write(name,`<!-- ${name}: このファイル全体を1つのカスタムHTMLブロックへ貼り付け -->\n${body}`);
+  write('03b-voices-section.html',wrap(voice));
+  write('reviews-heading.html',wrap(intro));
+  write('reviews-footer.html',wrap(outro));
   write('reviews-fallback.html','<!-- プラグイン導入前だけ使用。03と04の間へ。プラグイン稼働後は削除して二重表示を防ぐ。 -->\n'+wrap(fallback));
-  write('preview.html',`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>clear｜WordPress用4分割プレビュー</title><link rel="stylesheet" href="00-common.css"><style>body{margin:0}.theme-check{padding:8px;font:16px sans-serif;background:#fff;color:#111}</style></head><body><main class="clear-lp-page">${parts.slice(0,3).map(x=>x[1]).join('\n')}${wrap(fallback)}${parts[3][1]}</main></body></html>`);
+  write('preview.html',`<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>clear｜WordPress用4分割プレビュー</title><link rel="stylesheet" href="00-common.css"><style>body{margin:0}.theme-check{padding:8px;font:16px sans-serif;background:#fff;color:#111}</style></head><body><main class="clear-lp-page">${parts.slice(0,3).map(x=>x[1]).join('\n')}${wrap(voice)}${parts[3][1]}</main></body></html>`);
   console.log('Exported four independent WordPress blocks, scoped CSS, review fallback, and preview.');
 };

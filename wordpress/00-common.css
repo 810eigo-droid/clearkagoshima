@@ -881,6 +881,8 @@
 .clear-lp .section{border-radius:0}
 .clear-lp .price-card,.clear-lp .step-photo,.clear-lp .nameplate,.clear-lp .arched-photo,.clear-lp .salon-exterior,.clear-lp .access-visual img{transform:none;box-shadow:none}
 }
+.clear-lp .intro-consultation{margin:30px 0 0}
+.clear-lp .intro-consultation img{display:block;width:100%;height:auto;border-radius:44% 8% 36% 9% / 22% 8% 25% 10%}
 
 /* WordPress integration: styles are limited to the LP. */
 .clear-lp{display:block;width:100%;max-width:none;margin:0!important;padding:0;border:0;isolation:isolate;text-align:left;font-style:normal;font-weight:400}
