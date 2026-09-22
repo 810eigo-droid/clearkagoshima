@@ -933,6 +933,9 @@
 .clear-lp .menu-offer .button{font-size:16px}
 }
 .clear-lp img.soft-real-photo{filter:brightness(1.16) contrast(.82) saturate(.82)}
+.clear-lp .button.google-review-link{white-space:nowrap;font-size:clamp(12px,3.8vw,18px);gap:10px;padding-left:16px;padding-right:16px;max-width:100%}
+.clear-lp .google-review-link>span:first-child{white-space:nowrap}
+.clear-lp .button.google-review-link>span:last-child{width:28px;height:28px;flex-basis:28px;font-size:20px}
 
 /* WordPress integration: styles are limited to the LP. */
 .clear-lp{display:block;width:100%;max-width:none;margin:0!important;padding:0;border:0;isolation:isolate;text-align:left;font-style:normal;font-weight:400}

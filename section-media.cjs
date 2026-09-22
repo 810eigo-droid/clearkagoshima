@@ -25,7 +25,7 @@ module.exports=({pages,settings,btn})=>{
   const url=settings.reviews?.googleUrl;
   if(url){
     if(!/^https:\/\//.test(url))throw Error('Google review URL must use HTTPS');
-    pages[9]=pages[9].replace('<div class="voice-list">','<div class="center-action">'+btn('Googleで確認する',url,'button-green')+'</div><div class="voice-list">');
+    pages[9]=pages[9].replace('<div class="voice-list">','<div class="center-action">'+btn('Googleで実際のコメントを読む',url,'button-green google-review-link')+'</div><div class="voice-list">');
   }
 };
 

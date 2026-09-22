@@ -83,3 +83,5 @@ h2{font-size:clamp(30px,3.2vw,44px);line-height:1.7}
 @media(max-width:640px){.accessible-header{padding:12px 16px;gap:12px;min-height:100px}.accessible-header .brand strong{font-size:35px}.accessible-header .brand>span:first-child{font-size:10px}.accessible-header .brand .brand-kana{font-size:17px}.accessible-header .header-book{font-size:14px;padding:12px;white-space:nowrap}.accessible-header .header-book>span{display:none}.header-menu summary{min-width:62px}.menu-panel{right:12px;width:calc(100% - 24px);padding:16px}.menu-panel nav a{font-size:18px}.menu-offer .button{font-size:16px}}
 
 img.soft-real-photo{filter:brightness(1.16) contrast(.82) saturate(.82)}
+
+.button.google-review-link{white-space:nowrap;font-size:clamp(12px,3.8vw,18px);gap:10px;padding-left:16px;padding-right:16px;max-width:100%}.google-review-link>span:first-child{white-space:nowrap}.button.google-review-link>span:last-child{width:28px;height:28px;flex-basis:28px;font-size:20px}
