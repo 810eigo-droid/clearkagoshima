@@ -939,6 +939,11 @@
 .clear-lp .google-review-link>span:first-child{white-space:nowrap}
 .clear-lp .button.google-review-link>span:last-child{width:28px;height:28px;flex-basis:28px;font-size:20px}
 .clear-lp .all-genders-note{font-size:18px;font-weight:700;line-height:1.9;margin-top:18px;margin-bottom:22px}
+.clear-lp .floating-top{position:fixed;right:18px;bottom:24px;z-index:35;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff!important;border:2px solid var(--paper);box-shadow:0 3px 12px #0002;text-decoration:none;font-size:28px}
+.clear-lp .floating-top:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+@media(max-width:640px){
+.clear-lp .floating-top{bottom:calc(102px + env(safe-area-inset-bottom));right:12px}
+}
 
 /* WordPress integration: styles are limited to the LP. */
 .clear-lp{display:block;width:100%;max-width:none;margin:0!important;padding:0;border:0;isolation:isolate;text-align:left;font-style:normal;font-weight:400}
@@ -962,4 +967,9 @@
 .clear-lp-reviews{margin:0!important;padding:0 max(22px,calc((100% - 1160px)/2))!important;background:#f7f5ef;color:#292e2b;font-size:18px;line-height:1.95}
 .clear-lp-reviews p{font-size:18px;line-height:1.95}
 @media(max-width:640px){.clear-lp{padding-bottom:0}.clear-lp .site-footer{padding-bottom:calc(112px + env(safe-area-inset-bottom))}.clear-lp .voices-intro{padding-bottom:25px}.clear-lp .voices-outro{padding-top:25px}}
+
+/* Cocoon: only on pages containing this LP. */
+body:has(.clear-lp-page) #go-to-top,body:has(.clear-lp-page) .mobile-footer-menu-buttons{display:none!important}
+.clear-lp h2,.clear-lp h3{background:none;border:0;padding:0}
+.clear-lp h2:before,.clear-lp h2:after,.clear-lp h3:before,.clear-lp h3:after{content:none}
 </style>

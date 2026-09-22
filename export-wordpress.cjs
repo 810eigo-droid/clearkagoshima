@@ -30,7 +30,7 @@ module.exports=({html,pages,settings})=>{
   fs.mkdirSync(out,{recursive:true});
   const write=(name,text)=>fs.writeFileSync(path.join(out,name),text+'\n');
   const src=['fonts/clear-fonts.css','styles.css','design-v2.css'].map(file=>fs.readFileSync(path.join(__dirname,file),'utf8')).join('\n');
-  const scoped=scopeCSS(src)+`
+  let scoped=scopeCSS(src)+`
 /* WordPress integration: styles are limited to the LP. */
 .clear-lp{display:block;width:100%;max-width:none;margin:0!important;padding:0;border:0;isolation:isolate;text-align:left;font-style:normal;font-weight:400}
 .clear-lp section[id]{scroll-margin-top:32px}
@@ -54,6 +54,7 @@ module.exports=({html,pages,settings})=>{
 .clear-lp-reviews p{font-size:18px;line-height:1.95}
 @media(max-width:640px){.clear-lp{padding-bottom:0}.clear-lp .site-footer{padding-bottom:calc(112px + env(safe-area-inset-bottom))}.clear-lp .voices-intro{padding-bottom:25px}.clear-lp .voices-outro{padding-top:25px}}
 `;
+  scoped += "\n/* Cocoon: only on pages containing this LP. */\nbody:has(.clear-lp-page) #go-to-top,body:has(.clear-lp-page) .mobile-footer-menu-buttons{display:none!important}\n.clear-lp h2,.clear-lp h3{background:none;border:0;padding:0}\n.clear-lp h2:before,.clear-lp h2:after,.clear-lp h3:before,.clear-lp h3:after{content:none}\n";
   write('00-common.css',scoped);
   write('00-common-style.html','<!-- 最初に1回だけ貼付。保存時にstyleが消える場合は00-common.cssを追加CSSへ。 -->\n<style>\n'+scoped+'</style>');
   const media=h=>h.replace(/src="images\/([^"/]+)"/g,(_,file)=>{
