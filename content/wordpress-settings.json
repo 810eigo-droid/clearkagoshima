@@ -1,10 +1,12 @@
 {
-  "imageBaseUrl": "https://raw.githubusercontent.com/810eigo-droid/clearkagoshima/b92e0f697962b2df27d80707368e8adba69780dc/images/",
-  "imageUrls": {},
+  "imageBaseUrl": "https://clearkagoshima.com/wp-content/uploads/2026/09/",
+  "imageUrls": {
+    "10.koe.webp": "https://clearkagoshima.com/wp-content/uploads/2026/09/10.koe_.webp"
+  },
   "hero": {
     "enabled": true,
-    "desktopUrl": "https://raw.githubusercontent.com/810eigo-droid/clearkagoshima/5d2ff3e6804f508f3e0ed90f13aa47de4dbd569f/images/fv-pc.webp",
-    "mobileUrl": "https://raw.githubusercontent.com/810eigo-droid/clearkagoshima/5d2ff3e6804f508f3e0ed90f13aa47de4dbd569f/images/fv-sp.webp"
+    "desktopUrl": "https://clearkagoshima.com/wp-content/uploads/2026/09/fv-pc.webp",
+    "mobileUrl": "https://clearkagoshima.com/wp-content/uploads/2026/09/fv-sp.webp"
   },
   "reviews": {
     "googleUrl": "https://www.google.com/searchviewer/10?svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVd4d01XZHVNM2MzGAo#sv=CAESzQEKuQEStgEKd0FKaVQ0dEtOQ3ZCcmY3TWR1STlYV2hIQTNUQkZYekVwcTBSQU1vdUJCaTNqVi1RLU95czd6SVN0N0hRZEZjNTI5bjlIOFc3aUdnTUhBUk5XRWtWSUpHM2dfNGdHM1UxWjdoN2JHeXNtcFZNdnhtV1RGVS1FNzVzEhd6dWV4YXJhNEJlM0wycm9QaXBPQjZBURoiQURzcjlmVE9LdEFLd184aC1BTW93WHpJTVp1NHN0RWRjQRIEODA1MRoBMyoAMAA4AUAAGAAgkqiWqgxKAhAB"
