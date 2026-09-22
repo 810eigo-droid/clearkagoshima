@@ -37,3 +37,6 @@ body:has(.clear-lp) #content-in{display:block!important}
 body:has(.clear-lp){background:#f7f5ef!important}
 body:has(.clear-lp) .entry-content > .clear-lp,body:has(.clear-lp) .entry-content > .wp-block-group:has(.clear-lp){margin:0!important;max-width:none!important;padding:0!important}
 
+/* Hide automatically inserted Cocoon table of contents on this LP only. */
+body:has(.clear-lp) .toc,body:has(.clear-lp) #toc{display:none!important}
+
