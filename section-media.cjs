@@ -10,6 +10,8 @@ module.exports=({pages,settings,btn})=>{
   replace(4,'profile-onishi','04-therapist','担当する理学療法士、大西英一郎');
   replace(5,'profile-onishi','05-flow-01-counseling','お悩みを伺うカウンセリングのイメージ');
   replace(5,'selfcare-exercise','05-flow-03-selfcare','セルフケアを一緒に確認するイメージ');
+  if(exists('05-flow-05-line-advice')) pages[4]=pages[4].replace(/<img[^>]*alt="アドバイスシートをLINEでお届け"[^>]*>/,photo('05-flow-05-line-advice','LINEで届いたアドバイスシートを確認するイメージ'));
+  replace(13,'selfcare-exercise','13-daily-life','穏やかに散歩を楽しむ女性のイメージ');
   replace(7,'selfcare-exercise','07-care-detail','タオルとアドバイス用紙のイメージ');
   replace(8,'treatment-hands','08-reservation','スマートフォンで予約を確認するイメージ');
   pages[10]=pages[10].replace(/<img[^>]*src="images\/treatment-hands\.webp"[^>]*>/,'<img class="medical-guidance" src="images/11-medical-guidance.png" alt="医療機関への相談を表す建物と吹き出しのイラスト" width="1200" height="1200" loading="lazy" decoding="async">');
