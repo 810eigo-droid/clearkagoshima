@@ -22,6 +22,8 @@ module.exports=({pages,settings,btn})=>{
   pages[4]=pages[4].replace('class="section flow"','class="section flow photo-tone-adjusted"');
   pages[8]=pages[8].replace('class="section faq"','class="section faq photo-tone-adjusted"');
   for(let i=0;i<pages.length;i++) pages[i]=pages[i].replace(/<img([^>]*src="images\/(?:check-posture|profile-onishi|selfcare-exercise|treatment-hands|shop-exterior)\.webp"[^>]*)>/g,(_,attrs)=>'<img'+attrs.replace(/ class="[^"]*"/,'')+' class="soft-real-photo">');
+  pages[0]=pages[0].replace('そんな方のための、女性が安心して通える整体サロンです。</p>','そんな方のための、女性が安心して通える整体サロンです。</p><p class="all-genders-note">男性の方もご利用いただけます。</p>');
+  pages[5]=pages[5].replace('<h3>通いやすい環境</h3>','<p class="all-genders-note">女性専用ではありません。男性の方もお気軽にご相談ください。</p><h3>通いやすい環境</h3>');
   const url=settings.reviews?.googleUrl;
   if(url){
     if(!/^https:\/\//.test(url))throw Error('Google review URL must use HTTPS');
