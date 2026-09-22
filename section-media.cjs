@@ -17,6 +17,10 @@ module.exports=({pages,settings,btn})=>{
   pages[10]=pages[10].replace(/<img[^>]*src="images\/treatment-hands\.webp"[^>]*>/,'<img class="medical-guidance" src="images/11-medical-guidance.png" alt="医療機関への相談を表す建物と吹き出しのイラスト" width="1200" height="1200" loading="lazy" decoding="async">');
   replace(10,'check-posture','10.koe','ご利用いただいた方の声をご案内するイメージ');
   if(exists('01-intro-consultation')) pages[0]=pages[0].replace('<div class="hero-intro wrap"><div>','<div class="hero-intro wrap"><div>').replace('</h2></div><div><p>clearでは','</h2><figure class="intro-consultation">'+photo('01-intro-consultation','身体の状態についてお話を伺う様子')+'</figure></div><div><p>clearでは');
+  pages[12]=pages[12].replace('身体の状態を確認する</span>','ホットペッパーで予約する</span>');
+  pages[9]=pages[9].replace(/(<img[^>]*src="images\/10\.koe\.webp"[^>]*>)/,'<figure class="voices-image">$1<figcaption>イメージ画像です</figcaption></figure>');
+  pages[4]=pages[4].replace('class="section flow"','class="section flow photo-tone-adjusted"');
+  pages[8]=pages[8].replace('class="section faq"','class="section faq photo-tone-adjusted"');
   const url=settings.reviews?.googleUrl;
   if(url){
     if(!/^https:\/\//.test(url))throw Error('Google review URL must use HTTPS');
