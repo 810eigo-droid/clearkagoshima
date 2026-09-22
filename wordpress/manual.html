@@ -1,12 +1,36 @@
-<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>clear LP｜Cocoon設置・更新マニュアル</title><style>body{margin:0;background:#f7f5ef;color:#293d32;font:18px/1.9 sans-serif}main{max-width:900px;margin:auto;padding:35px 24px 80px}h1{font-size:30px}h2{margin-top:48px;border-bottom:2px solid #d79548;font-size:25px}h3{font-size:21px}a{color:#285d47}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e7ebe3;padding:20px;border-radius:12px;font-size:16px}li{margin:10px 0}.note{padding:20px;background:#e7ebe3;border-radius:12px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #b9c6ba;padding:10px;text-align:left}code{overflow-wrap:anywhere}@media print{body{background:white}main{max-width:none}}</style><main>
-<h1>clear LP<br>Cocoon設置・文字と画像の変更手順</h1><p>このマニュアルはブラウザで閲覧できます。印刷・PDF保存も可能です。</p><nav><a href="#setup">設置</a> ｜ <a href="#text">文字変更</a> ｜ <a href="#image">画像変更</a> ｜ <a href="#reviews">口コミ</a> ｜ <a href="#check">確認・復元</a></nav>
-<h2 id="setup">1．Cocoonへの設置</h2><p class="note">先生のWordPress上での動作確認は未実施です。まず下書きで設置し、現在のスキン・プラグイン環境で確認してください。テーマファイル自体の編集は不要です。</p><ol><li>固定ページを新規作成し、ページ設定のページタイプを「本文のみ（広い）」にします。テーマのバージョンにより表示名が異なる場合があります。</li><li>「グループ」ブロックを追加し、高度な設定の追加CSSクラスに <code>clear-lp-page</code> を指定します。幅は全幅、ブロック間隔は0にします。</li><li>その中に「カスタムHTML」ブロックを6つ作り、下表の順に各ファイルの内容を全文貼り付けます。HTMLファイルをメディアにアップロードする作業ではありません。</li></ol>
-<table><tr><th>順番</th><th>ファイル</th></tr><tr><td>共通スタイル</td><td><a href="00-common-style.html">00-common-style.html</a></td></tr><tr><td>01〜03</td><td>01-sections-01-03.html</td></tr><tr><td>04〜06</td><td>02-sections-04-06.html</td></tr><tr><td>07〜09</td><td>03-sections-07-09-and-voices-heading.html<br>名前にvoicesとありますが内容は07〜09です。</td></tr><tr><td>10・口コミ</td><td>03b-voices-section.html</td></tr><tr><td>11〜13・フッター</td><td>04-sections-11-13-and-footer.html</td></tr></table>
-<p>ファイルの内容は<a href="https://github.com/810eigo-droid/clearkagoshima/tree/codex/clear-lp-design/wordpress">GitHubのwordpressフォルダ</a>で対象ファイルを開き、「Raw」で表示したコードを全選択してコピーしてください。HTMLの見た目だけをコピーしないでください。</p>
-<h3>すでに設置済みで、テーマのヘッダーやサイドバーが出る場合</h3><ol><li>固定ページの編集画面で「ページ設定 → ページタイプ」を「本文のみ（広い）」へ変更します。</li><li>このLPの最後にカスタムHTMLブロックを1つ追加し、<a href="cocoon-fix.html">テーマ表示調整コード</a>を全文コピーして貼り、更新します。最新版の00-common-style.htmlには同じ調整を組み込み済みです。どちらか一方で十分です。</li><li>キャッシュを削除し、ログアウト状態またはシークレットウィンドウで確認します。</li></ol><p>この調整はclear-lpクラスのあるLPだけを対象とし、Cocoonのヘッダー・ナビ・サイドバー・フッター・記事タイトル・日時・SNSボタン・自動目次と外側の余白を非表示または解除します。他のページには適用されません。上部の黒いWordPress管理バーはログイン中だけの表示なので残します。独自スキンやプラグインの装飾が残る場合は実際のページで追加確認が必要です。</p><h3>Cocoonとの重複を防ぐ仕組み</h3><p>LPのCSSは基本的に <code>.clear-lp</code> 内に限定し、見出し装飾が重ならない補正を入れています。LPのグループがあるページだけ、Cocoonの <code>#go-to-top</code> と <code>.mobile-footer-menu-buttons</code> を非表示にして、戻るボタン・スマホ下部メニューの重複を防ぎます。他のページの設定を一括で変更しないでください。</p><p>共通スタイルのstyleタグが保存時に消える場合は、<code>00-common.css</code> の中身を管理者が追加CSSへ貼ります。同じCSSを二重に貼らないでください。スキン独自の追従ボタンが残る場合は、そのLPだけを対象に調整します。</p>
-<p>プライバシーポリシーのリンクは04-sections-11-13-and-footer.htmlの末尾にあります。リンク文字は日本語のまま、URLを将来変更する場合はhrefを書き換えます。現在は既存の日本語URLです。英語のprivacy-policyへ変更する場合はWordPress側で新URLを確認し、旧URLからの301リダイレクトも設定してからLPのリンクを変更してください。</p><h2 id="text">2．文字を変更する</h2><ol><li>編集前に、そのカスタムHTMLブロックの全文をテキストファイルへコピーして保存します。</li><li>該当セクションのブロックを開き、変更したい文章を検索します。</li><li><code>&lt;p&gt;</code> や <code>&lt;h2&gt;</code> などのタグを残し、文字だけ書き換えます。class・id・タグの括弧は変更しません。</li><li>プレビューでPCとスマホを確認してから更新します。</li></ol><pre>変更前：&lt;p&gt;男性の方もご利用いただけます。&lt;/p&gt;
-変更後：&lt;p&gt;男性の方もお気軽にご相談ください。&lt;/p&gt;</pre><p>改行位置の指定は <code>&lt;br&gt;</code> です。<code>&lt;wbr&gt;</code> は折り返し可能な位置を表します。ボタンの文言はspan内、リンク先はhrefの引用符内を変更します。料金はメニュー・料金欄・予約ボタンにもあるため、全箇所を確認してください。</p><p class="note">ファーストビューの文字は画像内に描かれています。見た目の文章を変える場合はPC・スマホ両方の画像を作り直し、読み上げ用の <code>hero-accessible</code> 内の文章も合わせて変更してください。</p>
-<h2 id="image">3．画像を変更する</h2><ol><li>WordPressの「メディア → 新規追加」で新しい画像をアップロードします。</li><li>その画像の「ファイルのURL」をコピーします。画像の添付ページURLではなく、末尾が.webp・.jpg・.pngなどの画像URLです。</li><li>該当HTMLブロックで元の画像名を検索し、<code>src="…"</code> の中だけを新URLへ変更します。</li><li><code>alt="…"</code> を画像内容に合う説明にします。枠を維持するためclassは残します。</li><li>プレビューで顔・手・文字が切れていないか確認し更新します。</li></ol><pre>&lt;img src="ここを新しい画像URLに変更" alt="画像の内容を説明" class="元のクラスは残す"&gt;</pre><p>新しい画像名でアップロードすると古い画像のキャッシュを避けやすくなります。GitHub画像URLをそのまま使うこともできますが、本運用はWordPressメディアへの保存を推奨します。</p><h3>ファーストビューは2か所</h3><p><code>hero-art-picture</code> を検索します。<code>&lt;source media="(max-width: 767px)" srcset="…"&gt;</code> がスマホ用、直後の <code>&lt;img src="…"&gt;</code> がPC用です。新画像の縦横比が異なる場合はwidth・heightも合わせて調整してください。</p><h3>画像名の目印</h3><ul><li>ファーストビュー：fv-pc.webp / fv-sp.webp</li><li>紹介：01-intro-consultation.webp ／ お悩み：02-concerns.webp</li><li>プロフィール：04-therapist.webp</li><li>カウンセリング：05-flow-01-counseling.webp</li><li>セルフケア：05-flow-03-selfcare.webp</li><li>LINEアドバイス：05-flow-05-line-advice.webp</li><li>料金：07-care-detail.webp ／ 予約：08-reservation.webp</li><li>口コミ案内：10.koe.webp ／ 医療機関：11-medical-guidance.png</li><li>最後に：13-daily-life.webp</li><li>既存実写：check-posture.webp、profile-onishi.webp、treatment-hands.webp、selfcare-exercise.webp、shop-exterior.webp</li></ul><p><code>soft-real-photo</code> は実写を明るく柔らかく表示する指定です。差し替え後に明るすぎる場合は、その画像のこのクラスだけを外します。</p>
-<h2 id="reviews">4．口コミをプラグインへ変更する場合</h2><p>口コミ全体は <code>03b-voices-section.html</code> で独立しています。将来はこのブロックだけを外し、①reviews-heading.htmlのHTMLブロック、②プラグインのブロックまたはショートコードブロック、③reviews-footer.htmlのHTMLブロックの順に置きます。元の口コミブロックとの二重表示に注意してください。</p><p>プラグイン部分のグループには <code>clear-lp-reviews</code> を設定します。個別プラグインの外観調整は設置後に行います。現在のGoogleリンクもHTMLのhrefで変更できます。</p>
-<h2 id="check">5．更新後の確認・元へ戻す</h2><ul><li>スマホとPCで文字のはみ出し、画像の切れ、メニュー開閉を確認します。</li><li>右下の矢印で先頭へ戻れること、スマホ下部の予約ボタンと重ならないことを確認します。</li><li>予約・LINE・Googleのリンク先を確認します。外部リンクは同じタブで開きますが、アプリへの遷移は端末側の動作です。</li><li>Cocoonの戻るボタンやモバイルメニューが二重に出ていないか確認します。</li><li>崩れた場合は更新前に保存したHTMLを戻すか、WordPressのリビジョンで復元します。</li></ul><p>V1はGitタグ <code>v1-before-image-hero</code> に保存されています。</p><p class="note">WordPressで直接変更した内容はGitHubへ自動同期されません。後日Gitから再生成するときは、WordPress側の変更も先に制作担当へ伝えてください。</p><p>制作担当向け：原稿はcontent/approved-copy.json、レイアウトはbuild.cjs、追加文言と画像割当はsection-media.cjs、画像URLはcontent/wordpress-settings.jsonで管理します。変更後にnode build.cjsでWordPressファイルを再生成します。</p>
-<h2>参考</h2><p><a href="https://wp-cocoon.com/community/customs/特定の固定ページだけで「メニューバー」　「sns/">Cocoon公式フォーラム：固定ページの本文のみ表示</a> ／ <a href="https://wp-cocoon.com/community/cocoon-theme/lpページの作成法について/">Cocoon公式フォーラム：LPページの作成</a></p></main></html>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clear｜文章と画像の変更方法</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f5ef;color:#293d32;font-family:system-ui,sans-serif;font-size:19px;line-height:1.9}main{max-width:800px;margin:auto;padding:40px 24px 64px}h1{font-size:30px;line-height:1.5;margin:0 0 32px}h2{font-size:25px;line-height:1.5;border-bottom:2px solid #d79548;padding-bottom:12px;margin:0 0 20px}section{margin:0 0 44px}ol{padding-left:1.5em}li{padding-left:4px;margin:16px 0}strong{font-weight:700}code{font-family:monospace;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e7ebe3;padding:18px;border-radius:10px;font-size:17px;line-height:1.8}.hint{background:#fff;padding:16px 20px;border-left:4px solid #d79548}a{color:#285d47}@media print{body{background:white}main{padding:0}section{break-inside:avoid}}
+</style>
+</head>
+<body><main>
+<h1>clear<br>文章と画像の変更方法</h1>
+<section aria-labelledby="text"><h2 id="text">1．文章を書き換える</h2>
+<ol>
+<li>WordPressの<strong>「固定ページ」</strong>から、<strong>今回のLP（/lp/）</strong>の編集画面を開きます。</li>
+<li>変更したい文章が入っている<strong>「カスタムHTML」ブロック</strong>をクリックします。</li>
+<li>文章を探し、<strong>文字の部分だけ</strong>を書き換えます。営業時間や定休日も同じ方法で変更できます。</li>
+<li><strong>「プレビュー」</strong>で確認し、<strong>「更新」または「保存」</strong>を押します。</li>
+</ol>
+<pre>変更前：&lt;p&gt;営業時間：9:00〜18:00&lt;/p&gt;
+変更後：&lt;p&gt;営業時間：10:00〜19:00&lt;/p&gt;</pre>
+<p>上は書き換え方の例です。<strong>&lt;p&gt; や &lt;/p&gt; などの記号は残してください。</strong></p>
+</section>
+<section aria-labelledby="image"><h2 id="image">2．画像を差し替える</h2>
+<ol>
+<li>WordPressの<strong>「メディア」→「新規追加」</strong>から、新しい画像を入れます。</li>
+<li>追加した画像を開き、<strong>「ファイルのURL」</strong>をコピーします。</li>
+<li>LPの編集画面に戻り、差し替えたい画像が入っている<strong>「カスタムHTML」ブロック</strong>を開きます。</li>
+<li><strong>src="…"</strong> を探し、引用符の中の画像URLだけを、新しいURLに貼り替えます。</li>
+<li><strong>「プレビュー」</strong>で確認し、<strong>「更新」または「保存」</strong>を押します。</li>
+</ol>
+<pre>&lt;img src="ここに新しい画像のURLを貼ります" …&gt;</pre>
+<p><strong>引用符（"）や、その前後の文字は残してください。</strong>近くの見出しや、画像の説明 <code>alt="…"</code> が、画像を探す目印になります。</p>
+<p class="hint"><strong>ページ最上部の大きな画像は2枚あります。</strong><br>スマホ用は <code>srcset="…"</code>、パソコン用は <code>src="…"</code> のURLを貼り替えます。画像に描かれている文字を変える場合も、画像を差し替えてください。</p>
+</section>
+</main></body></html>
